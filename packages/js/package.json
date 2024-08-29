@@ -1,0 +1,65 @@
+{
+  "name": "@formbricks/js",
+  "license": "MIT",
+  "version": "2.1.1",
+  "description": "Formbricks-js allows you to connect your app to Formbricks, display surveys and trigger events.",
+  "homepage": "https://formbricks.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/formbricks/formbricks"
+  },
+  "keywords": [
+    "Formbricks",
+    "surveys",
+    "experience management"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    "./app": {
+      "import": "./dist/app.js",
+      "require": "./dist/app.cjs",
+      "types": "./dist/app.d.ts"
+    },
+    "./website": {
+      "import": "./dist/website.js",
+      "require": "./dist/website.cjs",
+      "types": "./dist/website.d.ts"
+    },
+    "./*": "./dist/*"
+  },
+  "typesVersions": {
+    "*": {
+      "app": [
+        "./dist/app.d.ts"
+      ],
+      "website": [
+        "./dist/website.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "dev": "vite build --watch --mode dev",
+    "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode dev",
+    "go": "vite build --watch --mode dev",
+    "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "clean": "rimraf .turbo node_modules dist coverage"
+  },
+  "author": "Formbricks <hola@formbricks.com>",
+  "devDependencies": {
+    "@formbricks/js-core": "workspace:*",
+    "@formbricks/config-typescript": "workspace:*",
+    "@formbricks/eslint-config": "workspace:*",
+    "@formbricks/types": "workspace:*",
+    "terser": "^5.31.6",
+    "vite": "^5.4.1",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "peerDependencies": {
+    "zod": "3.x"
+  }
+}
